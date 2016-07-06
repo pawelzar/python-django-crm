@@ -10,7 +10,7 @@ class CompanyForm(forms.ModelForm):
         fields = ('name', 'city', 'street', 'postal_code', 'number')
 
 
-class UserForm(forms.ModelForm):
+class EditUserForm(forms.ModelForm):
 
     class Meta:
         model = User

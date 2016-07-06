@@ -5,7 +5,7 @@
     {% if user.is_superuser %}
         <a href="{% url 'company_new' %}" class="content"><span class="btn btn-primary">Add company</span></a>
     {% endif %}
-    {% for company in companys %}
+    {% for company in companies %}
     <div>
         <h1><a href="{% url 'company_details' pk=company.pk %}">{{ company.name }}</a></h1>
         <p>{{ company.street }}</p>
@@ -14,4 +14,4 @@
     </div>
     {% endfor %}
 {% endif %}
-{% endblock content %}
+{% endblock %}
