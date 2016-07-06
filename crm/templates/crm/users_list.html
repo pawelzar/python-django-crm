@@ -1,0 +1,12 @@
+{% extends 'crm/base.html' %}
+
+{% block content %}
+{% if user.is_superuser %}
+{% for user in users %}
+<div>
+    <h1><a href="">{{ user.username }}</a></h1>
+    <p>{{ user.first_name }} {{ user.last_name }}</p>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock content %}

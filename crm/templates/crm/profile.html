@@ -1,0 +1,11 @@
+{% extends "crm/base.html" %}
+
+{% block content %}
+
+<div class="col-md-5">
+    <h2><a href="{% url 'company_list' %}">List of companies</a></h2>
+</div>
+<div class="col-md-5 col-md-offset-2">
+    <h2><a href="{% url 'users_list' %}">List of users</a></h2>
+</div>
+{% endblock %}

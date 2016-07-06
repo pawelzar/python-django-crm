@@ -9,15 +9,15 @@
 
 <body>
 <div class="page-header">
-    <h1><a href="/">BEST CRM SYSTEM EVER</a></h1>
+    <h1><a href="">BEST CRM SYSTEM EVER</a></h1>
 </div>
 
 <div class="content">
 {% if user.is_authenticated %}
     <a href="/logout" class="btn btn-default">Logout</a>
-    <a href="{% url 'company_new' %}" class="btn btn-primary">Add company</a>
-{% else %}
-    <a href="/accounts/login" class="btn btn-default">Login</a>
+    {% if user.is_superuser %}
+        <a href="{% url 'company_new' %}" class="btn btn-primary">Add company</a>
+    {% endif %}
 {% endif %}
 </div>
 

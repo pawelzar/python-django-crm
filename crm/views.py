@@ -3,6 +3,16 @@ from django.contrib.auth import logout
 from django.shortcuts import redirect
 from .models import Company
 from .forms import CompanyForm
+from django.contrib.auth.models import User
+
+
+def profile_view(request):
+    return render(request, 'crm/profile.html')
+
+
+def users_list(request):
+    users = User.objects.all()
+    return render(request, 'crm/users_list.html', {'users': users})
 
 
 def company_list(request):
@@ -42,4 +52,4 @@ def company_edit(request, pk):
 
 def logout_view(request):
     logout(request)
-    return redirect('company_list')
+    return redirect('../')

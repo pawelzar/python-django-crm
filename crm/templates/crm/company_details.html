@@ -7,7 +7,7 @@
     <p>{{ company.street }}</p>
     <p>{{ company.postal_code }}</p>
     <p>{{ company.number }}</p>
-    {% if user.is_authenticated %}
+    {% if user.is_superuser %}
         <a class="btn btn-default" href="{% url 'company_edit' pk=company.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
     {% endif %}
 </div>
