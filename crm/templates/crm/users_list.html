@@ -4,7 +4,7 @@
 {% if user.is_superuser %}
 {% for user in users %}
 <div>
-    <h1><a href="">{{ user.username }}</a></h1>
+    <h1><a href="{% url 'user_details' pk=user.pk %}">{{ user.username }}</a></h1>
     <p>{{ user.first_name }} {{ user.last_name }}</p>
 </div>
 {% endfor %}

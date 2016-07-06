@@ -1,0 +1,11 @@
+{% extends 'crm/base.html' %}
+
+{% block content %}
+<div>
+    <h1>{{ user.username }}</a></h1>
+    <p>{{ user.first_name }}</p>
+    <p>{{ user.last_name }}</p>
+    <p>{{ user.email }}</p>
+    <a class="btn btn-default" href="{% url 'user_edit' pk=user.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+</div>
+{% endblock %}

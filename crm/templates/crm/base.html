@@ -15,9 +15,6 @@
 <div class="content">
 {% if user.is_authenticated %}
     <a href="/logout" class="btn btn-default">Logout</a>
-    {% if user.is_superuser %}
-        <a href="{% url 'company_new' %}" class="btn btn-primary">Add company</a>
-    {% endif %}
 {% endif %}
 </div>
 
