@@ -1,0 +1,33 @@
+{% load staticfiles %}
+<html>
+<head>
+    <title>CRM System</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="{% static 'css/crm.css' %}">
+</head>
+
+<body>
+<div class="page-header">
+    <h1><a href="/">BEST CRM SYSTEM EVER</a></h1>
+</div>
+
+<div class="content">
+{% if user.is_authenticated %}
+    <a href="/logout" class="btn btn-default">Logout</a>
+    <a href="{% url 'company_new' %}" class="btn btn-primary">Add company</a>
+{% else %}
+    <a href="/accounts/login" class="btn btn-default">Login</a>
+{% endif %}
+</div>
+
+<div class="content container">
+    <div class="row">
+        <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+</html>

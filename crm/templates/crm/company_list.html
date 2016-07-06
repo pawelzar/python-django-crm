@@ -1,0 +1,14 @@
+{% extends 'crm/base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+{% for company in companys %}
+<div>
+    <h1><a href="{% url 'company_details' pk=company.pk %}">{{ company.name }}</a></h1>
+    <p>{{ company.street }}</p>
+    <p>{{ company.postal_code }}, {{ company.city }}</p>
+    <p>NIP: {{ company.number }}</p>
+</div>
+{% endfor %}
+{% endif %}
+{% endblock content %}
