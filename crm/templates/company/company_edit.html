@@ -6,8 +6,14 @@
     <h1>Edit Company</h1>
     <form method="POST" class="company-form">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default pull-left">Save</button>
+        {% for field in form %}
+        <fieldset class="form-group">
+            <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+            {{ field.errors }}
+            <input type="text" class="form-control" name="{{ field.name }}" id="id_{{ field.name }}" value="{{ field.value }}">
+        </fieldset>
+        {% endfor %}
+        <button type="submit" class="save btn btn-primary pull-left">Save</button>
     </form>
 </div>
 {% endblock %}

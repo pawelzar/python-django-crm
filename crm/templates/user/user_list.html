@@ -1,16 +1,14 @@
 {% extends 'common/base.html' %}
 
 {% block content %}
-{% if user.is_superuser %}
 <a href="{% url 'profile' %}"><span class="btn btn-default">Main Page</span></a>
-    <a href="{% url 'user_new' %}"><span class="btn btn-primary">Add User</span></a>
-    {% for user in users %}
-        <div>
-            <h1><a href="{% url 'user_details' pk=user.pk %}">{{ user.username }}</a></h1>
-            <p>{{ user.first_name }} {{ user.last_name }}</p>
-        </div>
-        <a class="btn btn-default" href="{% url 'user_edit' pk=user.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        <a class="btn btn-danger" href="{% url 'user_delete' pk=user.pk %}" onclick="return confirm('Are you sure?')"><span class="glyphicon glyphicon-trash"></span></a>
-    {% endfor %}
-{% endif %}
+<a href="{% url 'user_new' %}"><span class="btn btn-primary">Add User</span></a>
+{% for user in users %}
+    <div>
+        <h1><a href="{% url 'user_details' pk=user.pk %}">{{ user.username }}</a></h1>
+        <p>{{ user.first_name }} {{ user.last_name }}</p>
+    </div>
+    <a class="btn btn-default" href="{% url 'user_edit' pk=user.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a class="btn btn-danger" href="{% url 'user_delete' pk=user.pk %}" onclick="return confirm('Are you sure?')"><span class="glyphicon glyphicon-trash"></span></a>
+{% endfor %}
 {% endblock content %}

@@ -5,14 +5,18 @@ from django.contrib.auth.models import User
 
 
 def profile_view(request):
-    if request.user.is_superuser:
-        return render(request, 'admin/choice.html')
-    return redirect('company_list')
+    if request.user.is_authenticated:
+        if request.user.is_superuser:
+            return render(request, 'admin/choice.html')
+        return redirect('company_list')
+    return redirect('login')
 
 
 def user_list(request):
-    users = User.objects.all()
-    return render(request, 'user/user_list.html', {'users': users})
+    if request.user.is_superuser:
+        users = User.objects.all()
+        return render(request, 'user/user_list.html', {'users': users})
+    return redirect('profile')
 
 
 def user_details(request, pk):
