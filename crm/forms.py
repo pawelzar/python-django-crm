@@ -11,7 +11,6 @@ class CompanyForm(forms.ModelForm):
 
 
 class AddUserForm(forms.ModelForm):
-    password = forms.CharField(widget=forms.PasswordInput())
 
     class Meta:
         model = User
@@ -22,4 +21,4 @@ class EditUserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email')
+        fields = ('username', 'first_name', 'last_name', 'email', 'is_superuser')

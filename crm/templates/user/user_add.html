@@ -7,12 +7,22 @@
     <form method="POST" class="user-form">
         {% csrf_token %}
         {% for field in form %}
-        <fieldset class="form-group">
-            <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
-            {{ field.errors }}
-            <input type="text" class="form-control" name="{{ field.name }}" id="id_{{ field.name }}" placeholder="{{ field.label }}">
-        </fieldset>
+            {% if field.label != "Password" and field.name != "is_superuser" %}
+            <fieldset class="form-group">
+                <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+                {{ field.errors }}
+                <input type="text" class="form-control" name="{{ field.name }}" id="id_{{ field.name }}" placeholder="{{ field.label }}">
+            </fieldset>
+            {% endif %}
         {% endfor %}
+        <label class="control-label" for="id_{{ form.password.name }}">{{ form.password.label }}</label>
+        {{ form.password.errors }}
+        <input type="password" class="form-control" name="{{ form.password.name }}" id="id_{{ form.password.name }}" placeholder="{{ form.password.label }}">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="is_superuser">Superuser
+            </label>
+        </div>
         <button type="submit" class="save btn btn-default pull-left">Save</button>
     </form>
 </div>

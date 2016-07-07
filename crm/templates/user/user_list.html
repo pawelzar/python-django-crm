@@ -10,7 +10,7 @@
             <p>{{ user.first_name }} {{ user.last_name }}</p>
         </div>
         <a class="btn btn-default" href="{% url 'user_edit' pk=user.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        <a class="btn btn-danger" href="{% url 'user_delete' pk=user.pk %}"><span class="glyphicon glyphicon-trash"></span></a>
+        <a class="btn btn-danger" href="{% url 'user_delete' pk=user.pk %}" onclick="return confirm('Are you sure?')"><span class="glyphicon glyphicon-trash"></span></a>
     {% endfor %}
 {% endif %}
 {% endblock content %}

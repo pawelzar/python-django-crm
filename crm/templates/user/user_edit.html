@@ -9,9 +9,18 @@
         {% for field in form %}
         <fieldset class="form-group">
             <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+            {{ field.errors }}
             <input type="text" class="form-control" name="{{ field.name }}" id="id_{{ field.name }}" value="{{ field.value }}">
         </fieldset>
         {% endfor %}
+        <label class="control-label">New password</label>
+        {{ field.errors }}
+        <input type="password" value="{{ request.POST.new_password }}" name="new_password" class="form-control" placeholder="Password">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="is_superuser" value=""/> Superuser
+            </label>
+        </div>
         <button type="submit" class="save btn btn-default pull-left">Save</button>
     </form>
 </div>
