@@ -12,13 +12,13 @@ def profile_view(request):
 
 def users_list(request):
     users = User.objects.all()
-    return render(request, 'crm/users_list.html', {'users': users})
+    return render(request, 'user/users_list.html', {'users': users})
 
 
 def user_details(request, pk):
     if request.user.is_superuser:
         user = get_object_or_404(User, pk=pk)
-        return render(request, 'crm/user_details.html', {'user': user})
+        return render(request, 'user/user_details.html', {'user': user})
     return redirect('profile')
 
 
@@ -31,7 +31,7 @@ def user_new(request):
             return redirect('user_details', pk=user.pk)
     else:
         form = EditUserForm()
-    return render(request, 'crm/user_edit.html', {'form': form})
+    return render(request, 'user/user_add.html', {'form': form})
 
 
 def user_edit(request, pk):
@@ -45,4 +45,4 @@ def user_edit(request, pk):
                 return redirect('user_details', pk=user.pk)
         else:
             form = EditUserForm(instance=user)
-        return render(request, 'crm/user_edit.html', {'form': form})
+        return render(request, 'user/user_edit.html', {'form': form})

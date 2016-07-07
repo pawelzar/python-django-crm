@@ -6,12 +6,12 @@ from crm.forms import CompanyForm
 
 def company_list(request):
     companies = Company.objects.all()
-    return render(request, 'crm/company_list.html', {'companies': companies})
+    return render(request, 'company/company_list.html', {'companies': companies})
 
 
 def company_details(request, pk):
     company = get_object_or_404(Company, pk=pk)
-    return render(request, 'crm/company_details.html', {'company': company})
+    return render(request, 'company/company_details.html', {'company': company})
 
 
 def company_new(request):
@@ -23,7 +23,7 @@ def company_new(request):
             return redirect('company_details', pk=company.pk)
     else:
         form = CompanyForm()
-    return render(request, 'crm/company_edit.html', {'form': form})
+    return render(request, 'company/company_add.html', {'form': form})
 
 
 def company_edit(request, pk):
@@ -36,4 +36,4 @@ def company_edit(request, pk):
             return redirect('company_details', pk=company.pk)
     else:
         form = CompanyForm(instance=company)
-    return render(request, 'crm/company_edit.html', {'form': form})
+    return render(request, 'company/company_edit.html', {'form': form})

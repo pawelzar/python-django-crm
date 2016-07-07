@@ -1,0 +1,19 @@
+{% extends 'crm/base.html' %}
+
+{% block content %}
+<input type=button class="btn btn-default" value="Previous Page" onClick="javascript:history.go(-1);">
+<div class="form-edit">
+    <h1>User</h1>
+    <form method="POST" class="user-form">
+        {% csrf_token %}
+        {% for field in form %}
+        <fieldset class="form-group">
+            <label class="control-label" for="id_{{ field.name }}">{{ field.label }}</label>
+            {{ field.errors }}
+            <input type="text" class="form-control" name="{{ field.name }}" id="id_{{ field.name }}" placeholder="{{ field.label }}">
+        </fieldset>
+        {% endfor %}
+        <button type="submit" class="save btn btn-default pull-left">Save</button>
+    </form>
+</div>
+{% endblock %}

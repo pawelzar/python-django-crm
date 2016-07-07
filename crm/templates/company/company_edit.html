@@ -2,7 +2,7 @@
 
 {% block content %}
 <input type=button class="btn btn-default" value="Previous Page" onClick="javascript:history.go(-1);">
-<div>
+<div class="form-edit">
     <h1>New company</h1>
     <form method="POST" class="company-form">
         {% csrf_token %}
