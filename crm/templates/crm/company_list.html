@@ -1,9 +1,10 @@
 {% extends 'crm/base.html' %}
 
 {% block content %}
+<input type=button class="btn btn-default" value="Previous Page" onClick="javascript:history.go(-1);">
 {% if user.is_authenticated %}
     {% if user.is_superuser %}
-        <a href="{% url 'company_new' %}" class="content"><span class="btn btn-primary">Add company</span></a>
+        <a href="{% url 'company_new' %}"><span class="btn btn-primary">Add company</span></a>
     {% endif %}
     {% for company in companies %}
     <div>

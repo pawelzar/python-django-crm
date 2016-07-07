@@ -14,5 +14,6 @@ urlpatterns = [
     url(r'^company/(?P<pk>[0-9]+)/edit/$', comp_views.company_edit, name='company_edit'),
     url(r'^users/', user_views.users_list, name='users_list'),
     url(r'^user/(?P<pk>[0-9]+)/$', user_views.user_details, name='user_details'),
-    url(r'^user/(?P<pk>[0-9]+)/edit/$', comp_views.company_edit, name='user_edit'),
+    url(r'^user/new/$', user_views.user_new, name='user_new'),
+    url(r'^user/(?P<pk>[0-9]+)/edit/$', user_views.user_edit, name='user_edit'),
 ]

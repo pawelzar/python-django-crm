@@ -2,10 +2,10 @@
 
 {% block content %}
 {% if user.is_authenticated %}
-<div class="col-md-5">
+<div>
     <h2><a href="{% url 'company_list' %}">List of companies</a></h2>
 </div>
-<div class="col-md-5 col-md-offset-2">
+<div>
     <h2><a href="{% url 'users_list' %}">List of users</a></h2>
 </div>
 {% endif %}

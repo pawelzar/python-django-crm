@@ -1,6 +1,7 @@
 {% extends 'crm/base.html' %}
 
 {% block content %}
+<input type=button class="btn btn-default" value="Previous Page" onClick="javascript:history.go(-1);">
 <div>
     <h1>{{ user.username }}</a></h1>
     <p>{{ user.first_name }}</p>
