@@ -10,6 +10,9 @@ class CompanyForm(forms.ModelForm):
         model = Company
         fields = ('name', 'city', 'street', 'postal_code', 'number')
 
+    def __init__(self, *args, **kwargs):
+        super(CompanyForm, self).__init__(*args, **kwargs)
+
     def clean_postal_code(self):
         cd = self.cleaned_data
         code = cd.get('postal_code')
@@ -23,7 +26,7 @@ class CompanyForm(forms.ModelForm):
         cd = self.cleaned_data
         number = cd.get('number')
 
-        if not str(number).isnumeric() and len(number) != 10:
+        if not str(number).isnumeric() or len(number) != 10:
             raise forms.ValidationError("Must consist of 10 digits.")
 
         return number
@@ -33,7 +36,7 @@ class AddUserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email',)
+        fields = ('username', 'first_name', 'last_name', 'email', 'password')
 
 
 class EditUserForm(forms.ModelForm):
