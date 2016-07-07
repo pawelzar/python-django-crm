@@ -1,0 +1,20 @@
+{% extends "common/base.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<div class="container">
+    <div class="row">
+        <a href="{% url 'company_list' %}">
+            <div class="col-lg-6 well well-lg">
+                <h2>List of companies</h2>
+            </div>
+        </a>
+        <a href="{% url 'user_list' %}">
+            <div class="col-lg-6 well well-lg">
+                <h2>List of users</h2>
+            </div>
+        </a>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

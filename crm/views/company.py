@@ -37,3 +37,9 @@ def company_edit(request, pk):
     else:
         form = CompanyForm(instance=company)
     return render(request, 'company/company_edit.html', {'form': form})
+
+
+def company_delete(request, pk):
+    if request.user.is_superuser:
+        Company.objects.filter(pk=pk).delete()
+    return company_list(request)

@@ -16,7 +16,7 @@ def login(request):
                 auth.login(request, user)
                 return redirect('profile')
 
-    return render(request, 'crm/login.html')
+    return render(request, 'auth/login.html')
 
 
 def logout(request):

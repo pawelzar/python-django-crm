@@ -10,6 +10,14 @@ class CompanyForm(forms.ModelForm):
         fields = ('name', 'city', 'street', 'postal_code', 'number')
 
 
+class AddUserForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'email', 'password')
+
+
 class EditUserForm(forms.ModelForm):
 
     class Meta:

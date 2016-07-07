@@ -1,9 +1,9 @@
-{% extends 'crm/base.html' %}
+{% extends 'common/base.html' %}
 
 {% block content %}
-<input type=button class="btn btn-default" value="Previous Page" onClick="javascript:history.go(-1);">
+<a class="btn btn-default" href="{% url 'user_list' %}">Previous Page</a>
 <div class="form-edit">
-    <h1>User</h1>
+    <h1>Edit User</h1>
     <form method="POST" class="user-form">
         {% csrf_token %}
         {% for field in form %}

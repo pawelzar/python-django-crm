@@ -1,10 +1,10 @@
-{% extends 'crm/base.html' %}
+{% extends 'common/base.html' %}
 
 {% block content %}
-<input type=button class="btn btn-default" value="Previous Page" onClick="javascript:history.go(-1);">
 {% if user.is_authenticated %}
     {% if user.is_superuser %}
-        <a href="{% url 'company_new' %}"><span class="btn btn-primary">Add company</span></a>
+        <a href="{% url 'profile' %}"><span class="btn btn-default">Main Page</span></a>
+        <a href="{% url 'company_new' %}"><span class="btn btn-primary">Add Company</span></a>
     {% endif %}
     {% for company in companies %}
     <div>
@@ -13,6 +13,10 @@
         <p>{{ company.postal_code }}, {{ company.city }}</p>
         <p>NIP: {{ company.number }}</p>
     </div>
+    {% if user.is_superuser %}
+        <a class="btn btn-default" href="{% url 'company_edit' pk=company.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-danger" href="{% url 'company_delete' pk=company.pk %}" onclick="return confirm('Are you sure?')"><span class="glyphicon glyphicon-trash"></span></a>
+    {% endif %}
     {% endfor %}
 {% endif %}
 {% endblock %}
