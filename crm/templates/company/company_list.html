@@ -6,17 +6,35 @@
         <a href="{% url 'profile' %}"><span class="btn btn-default">Main Page</span></a>
         <a href="{% url 'company_new' %}"><span class="btn btn-primary">Add Company</span></a>
     {% endif %}
-    {% for company in companies %}
-    <div>
-        <h1><a href="{% url 'company_details' pk=company.pk %}">{{ company.name }}</a></h1>
-        <p>{{ company.street }}</p>
-        <p>{{ company.postal_code }}, {{ company.city }}</p>
-        <p>NIP: {{ company.number }}</p>
-    </div>
-    {% if user.is_superuser %}
-        <a class="btn btn-default" href="{% url 'company_edit' pk=company.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-        <a class="btn btn-danger" href="{% url 'company_delete' pk=company.pk %}" onclick="return confirm('Are you sure?')"><span class="glyphicon glyphicon-trash"></span></a>
-    {% endif %}
-    {% endfor %}
+    <h2>List of companies in the database</h2>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>City</th>
+            <th>Street</th>
+            <th>Postal code</th>
+            <th>Idnetification number</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for company in companies %}
+        <tr>
+            <td><a href="{% url 'company_details' pk=company.pk %}">{{ company.name }}</a></td>
+            <td>{{ company.city }}</td>
+            <td>{{ company.street }}</td>
+            <td>{{ company.postal_code }}</td>
+            <td>{{ company.number }}</td>
+            <td>
+            {% if user.is_superuser %}
+                <a class="btn btn-default" href="{% url 'company_edit' pk=company.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+                <a class="btn btn-danger" href="{% url 'company_delete' pk=company.pk %}" onclick="return confirm('Are you sure?')"><span class="glyphicon glyphicon-trash"></span></a>
+            {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endif %}
 {% endblock %}
