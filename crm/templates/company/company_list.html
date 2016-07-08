@@ -3,7 +3,7 @@
 {% block content %}
 {% if user.is_authenticated %}
     {% if user.is_superuser %}
-        <a href="{% url 'profile' %}"><span class="btn btn-default">Main Page</span></a>
+        <a href="{% url 'choice' %}"><span class="btn btn-default">Main Page</span></a>
         <a href="{% url 'company_new' %}"><span class="btn btn-primary">Add Company</span></a>
     {% endif %}
     <h2>List of companies in the database</h2>

@@ -36,11 +36,13 @@ class AddUserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'password')
+        fields = ('username', 'first_name', 'last_name',
+                  'email', 'password')
 
 
 class EditUserForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'first_name', 'last_name', 'email', 'is_superuser')
+        fields = ('username', 'first_name', 'last_name',
+                  'email', 'is_superuser')
