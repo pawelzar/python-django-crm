@@ -1,5 +1,4 @@
 .page-header {
-    background-color: white;
     margin-top: 0;
     padding: 5px 10px 10px 10px;
 }
@@ -11,36 +10,8 @@
     text-align: center;
 }
 
-.content {
-    margin-left: 40px;
-}
-
 h1, h2, h3, h4 {
     font-family: 'Calibri', cursive;
-}
-
-.date {
-    float: right;
-    color: #828282;
-}
-
-.save {
-    float: right;
-}
-
-.company-form textarea, .company-form input {
-    width: 100%;
-}
-
-.top-menu, .top-menu:hover, .top-menu:visited {
-    color: #ffffff;
-    float: right;
-    font-size: 26pt;
-    margin-right: 20px;
-}
-
-body {
-    background: #eeeeee;
 }
 
 .form-signin {
@@ -48,13 +19,11 @@ body {
     padding: 15px;
     margin: 0 auto;
 }
-.form-signin .form-signin-heading,
-.form-signin .checkbox {
-    margin-bottom: 10px;
-}
+
 .form-signin .checkbox {
     font-weight: normal;
 }
+
 .form-signin .form-control {
     position: relative;
     height: auto;
@@ -64,14 +33,13 @@ body {
     padding: 10px;
     font-size: 16px;
 }
-.form-signin .form-control:focus {
-    z-index: 2;
-}
-.form-signin input[type="email"] {
+
+.form-signin input[type="text"] {
     margin-bottom: -1px;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 }
+
 .form-signin input[type="password"] {
     margin-bottom: 10px;
     border-top-left-radius: 0;

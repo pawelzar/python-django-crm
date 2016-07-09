@@ -28,8 +28,10 @@
             <td>{{ company.number }}</td>
             <td>
             {% if user.is_superuser %}
-                <a class="btn btn-default" href="{% url 'company_edit' pk=company.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-                <a class="btn btn-danger" href="{% url 'company_delete' pk=company.pk %}" onclick="return confirm('Are you sure?')"><span class="glyphicon glyphicon-trash"></span></a>
+                <a class="btn btn-default" href="{% url 'company_edit' pk=company.pk %}">
+                    <span class="glyphicon glyphicon-pencil"></span></a>
+                <a class="btn btn-danger" href="{% url 'company_delete' pk=company.pk %}" onclick="return confirm('Are you sure?')">
+                    <span class="glyphicon glyphicon-trash"></span></a>
             {% endif %}
             </td>
         </tr>

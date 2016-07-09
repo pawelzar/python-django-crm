@@ -13,7 +13,7 @@
             <input type="text" class="form-control" name="{{ field.name }}" id="id_{{ field.name }}" value="{{ field.value }}">
         </fieldset>
         {% endfor %}
-        <button type="submit" class="save btn btn-primary pull-left">Save</button>
+        <button type="submit" class="save btn btn-primary">Save</button>
         <a class="btn btn-inverse" href="{% url 'company_list' %}">Cancel</a>
     </form>
 </div>

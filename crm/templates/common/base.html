@@ -2,8 +2,7 @@
 <html>
 <head>
     <title>CRM System</title>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/crm.css' %}">
 </head>
 
@@ -14,7 +13,7 @@
 
 <div class="container">
 {% if user.is_authenticated %}
-    <a href="/logout" class="btn btn-warning">Logout</a>
+    <a href="{% url 'logout' %}" class="btn btn-warning">Logout</a>
 {% endif %}
 
 {% block content %}
