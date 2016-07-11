@@ -17,7 +17,7 @@ class CompanyForm(forms.ModelForm):
         cd = self.cleaned_data
         code = cd.get('postal_code')
 
-        if not re.match(r'\d{2}-\d{3}', code):
+        if not re.match(r'\d{2}-\d{3}', str(code)):
             raise forms.ValidationError("Should look like this 00-000.")
 
         return code
@@ -26,8 +26,9 @@ class CompanyForm(forms.ModelForm):
         cd = self.cleaned_data
         number = cd.get('number')
 
-        if not str(number).isnumeric() or len(number) != 10:
-            raise forms.ValidationError("Must consist of 10 digits.")
+        if not re.match(r'\d(-?\d){9}$', str(number)):
+            raise forms.ValidationError(
+                "Must consist of 10 digits, '-' allowed.")
 
         return number
 
