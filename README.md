@@ -36,13 +36,19 @@ env\Scripts\activate.bat
 python3 manage.py migrate
 ```
 
-3) Run the server:
+3) Create superuser:
+
+```
+python3 manage.py createsuperuser
+```
+
+4) Run the server:
 
 ```
 python3 manage.py runserver
 ```
 
-By default, your website should be hosted at: http://127.0.0.1:8000/.
+By default, your website should be hosted at: http://127.0.0.1:8000/. Use login provided when creating superuser.
 
 
 ## Additional tools:
